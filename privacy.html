@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Denvik - Privacy Policy</title>
+  <meta name="description" content="Review Denvik's Privacy Policy detailing how we collect, use, and protect your personal data when you use our website and services." />
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            orange: {
+              50: '#FEF5EB',
+              100: '#FDEAD7',
+              200: '#FBD5AF',
+              300: '#F9C088',
+              400: '#F7AB60',
+              500: '#E47B10',
+              600: '#C6690E',
+              700: '#A7580C',
+              800: '#89460A',
+              900: '#6A3608'
+            },
+            green: {
+              50: '#F4F9ED',
+              100: '#E9F3DB',
+              200: '#D3E7B7',
+              300: '#BEDB94',
+              400: '#A9CF70',
+              500: '#85C324',
+              600: '#72A51F',
+              700: '#5F881A',
+              800: '#4D6B15',
+              900: '#3A4E10'
+            },
+            blue: {
+              50: '#E3F0F9',
+              100: '#C7E1F3',
+              200: '#8FC3E7',
+              300: '#57A5DB',
+              400: '#1F87CF',
+              500: '#0668A5',
+              600: '#05598D',
+              700: '#044A75',
+              800: '#033B5D',
+              900: '#022C46'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      color: #000;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+    }
+    .section-heading {
+      @apply text-3xl md:text-4xl font-bold mb-6 text-gray-800 relative;
+    }
+    .section-heading::after {
+      content: '';
+      @apply absolute bottom-0 left-0 h-1 w-20 bg-orange-500 rounded-full;
+      transform: translateY(8px);
+    }
+    .nav-link {
+      position: relative;
+      @apply font-medium;
+    }
+    .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      margin-top: 2px;
+      right: 0;
+      background: #0668A5;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover:after {
+      width: 100%;
+      left: 0;
+    }
+    .active-nav {
+      @apply text-blue-500;
+    }
+    .active-nav:after {
+      width: 100%;
+      left: 0;
+    }
+  </style>
+</head>
+<body class="bg-white">
+  <!-- Back to top button -->
+  <button id="backToTop" class="fixed bottom-6 right-6 bg-orange-500 text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 transform scale-0 opacity-0" aria-label="Back to top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+    </svg>
+  </button>
+  
+  <!-- Header/Navigation -->
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+        <!-- Logo -->
+        <div class="flex justify-start lg:w-0 lg:flex-1">
+          <a href="index.html" class="flex items-center group">
+            <span class="text-blue-500 font-bold text-2xl group-hover:text-blue-600 transition duration-300">Denvik</span>
+            <div class="ml-2 flex flex-col items-start">
+              <span class="text-sm text-orange-500 font-semibold">IoT Solutions</span>
+              <span class="text-xs text-gray-500">18 Years of Excellence</span>
+            </div>
+          </a>
+        </div>
+        <!-- Mobile menu button -->
+        <div class="-mr-2 -my-2 md:hidden">
+          <button id="mobile-menu-button" type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition duration-300">
+            <span class="sr-only">Open menu</span>
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <!-- Desktop nav links -->
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.html" class="nav-link text-gray-700 hover:text-blue-500">Home</a>
+          <a href="about.html" class="nav-link text-gray-700 hover:text-blue-500">About Us</a>
+          <a href="solutions.html" class="nav-link text-gray-700 hover:text-blue-500">Solutions</a>
+          <a href="case-studies.html" class="nav-link text-gray-700 hover:text-blue-500">Case Studies</a>
+          <div class="relative group">
+            <a href="resources.html" class="nav-link text-gray-700 hover:text-blue-500 inline-flex items-center">
+              Resources
+              <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </a>
+            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top scale-95 group-hover:scale-100">
+              <div class="py-1">
+                <a href="blogs.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">Blogs</a>
+                <a href="news.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">News</a>
+                <a href="whitepapers.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">Whitepapers</a>
+              </div>
+            </div>
+          </div>
+          <a href="career.html" class="nav-link text-gray-700 hover:text-blue-500">Career</a>
+          <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-500">Contact</a>
+        </nav>
+        <!-- Desktop CTA -->
+        <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <a href="middle-east-india.html" class="nav-link text-sm text-gray-700 hover:text-blue-500 mr-6">Middle East & India</a>
+          <a href="contact.html" class="btn-primary text-sm inline-flex items-center shadow-sm">
+            <span>Request a Demo</span>
+            <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-xl z-50 transition-all duration-300">
+      <div class="pt-2 pb-4 px-4 space-y-1">
+        <a href="index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-blue-500 bg-blue-50">Home</a>
+        <a href="about.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">About Us</a>
+        <a href="solutions.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Solutions</a>
+        <a href="case-studies.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Case Studies</a>
+        <div class="relative">
+          <button id="resources-dropdown-btn" class="flex justify-between items-center w-full px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">
+            Resources
+            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div id="resources-dropdown" class="hidden mt-1 ml-3 space-y-1">
+            <a href="blogs.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Blogs</a>
+            <a href="news.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">News</a>
+            <a href="whitepapers.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Whitepapers</a>
+          </div>
+        </div>
+        <a href="career.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Career</a>
+        <a href="contact.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Contact</a>
+        <a href="middle-east-india.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Middle East & India</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="section-heading text-center mb-10" data-aos="fade-up">Privacy Policy</h1>
+      <p class="text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="100">
+        Effective Date: [Insert Date]
+      </p>
+      <p class="text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="200">
+        Denvik is committed to protecting your privacy and personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website <a href="https://www.denvik.in" class="text-blue-600 hover:underline">www.denvik.in</a>, use our services, or interact with us. By using our website and services, you consent to the collection and processing of your information in accordance with this Privacy Policy.
+      </p>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="300">1. Information We Collect</h2>
+      <p class="text-gray-700 text-lg mb-4" data-aos="fade-up" data-aos-delay="400">
+        We collect various types of information to provide and improve our services:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="500">
+        <li><strong>Personal Information:</strong> When you interact with us (e.g., via forms), we may collect your name, email address, phone number, and company details.</li>
+        <li><strong>Billing and Payment Information:</strong> If you make a purchase or request a service, we may collect your billing details.</li>
+        <li><strong>Non-Personal Information:</strong> Automatically collected data such as your IP address, device type, browser type, operating system, and website usage statistics.</li>
+        <li><strong>Cookies & Tracking Technologies:</strong> We use cookies, web beacons, and similar technologies to enhance user experience and website functionality. See our Cookie Policy for more details.</li>
+      </ul>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="600">2. How We Use Your Information</h2>
+      <p class="text-gray-700 text-lg mb-4" data-aos="fade-up" data-aos-delay="700">
+        We use the collected information for the following purposes:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="800">
+        <li><strong>To Provide Services:</strong> Process inquiries, orders, and support requests.</li>
+        <li><strong>To Improve Our Website:</strong> Enhance user experience through analytics and performance improvements.</li>
+        <li><strong>To Communicate with You:</strong> Send newsletters, updates, and promotional offers (with your consent).</li>
+        <li><strong>For Security:</strong> Detect and prevent fraudulent or unauthorized activities.</li>
+        <li><strong>Legal Obligations:</strong> Comply with regulatory and legal requirements.</li>
+      </ul>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="900">3. How We Share Your Information</h2>
+      <p class="text-gray-700 text-lg mb-4" data-aos="fade-up" data-aos-delay="1000">
+        We do not sell, rent, or trade your personal data. However, we may share your information with:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="1100">
+        <li><strong>Trusted Service Providers:</strong> Such as payment processors, hosting providers, and analytics tools.</li>
+        <li><strong>Legal & Regulatory Authorities:</strong> When required by law or in response to legal requests.</li>
+        <li><strong>Business Transfers:</strong> In the event of a merger, acquisition, or asset sale, your data may be transferred to the new entity.</li>
+      </ul>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="1200">4. How We Protect Your Information</h2>
+      <p class="text-gray-700 text-lg mb-4" data-aos="fade-up" data-aos-delay="1300">
+        We implement robust security measures to protect your personal data from unauthorized access, alteration, or disclosure:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="1400">
+        <li><strong>Data Encryption:</strong> Secure encryption of sensitive information.</li>
+        <li><strong>Access Controls:</strong> Restricted access to personal data within our organization.</li>
+        <li><strong>Regular Security Audits:</strong> Continuous monitoring and assessment of potential vulnerabilities.</li>
+      </ul>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="1500">5. Your Data Protection Rights</h2>
+      <p class="text-gray-700 text-lg mb-4" data-aos="fade-up" data-aos-delay="1600">
+        Depending on your location, you may have the following rights regarding your personal data:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="1700">
+        <li><strong>Right to Access:</strong> Request a copy of your personal data.</li>
+        <li><strong>Right to Correction:</strong> Request correction of inaccurate or incomplete data.</li>
+        <li><strong>Right to Deletion:</strong> Request deletion of your personal data under certain circumstances.</li>
+        <li><strong>Right to Withdraw Consent:</strong> Opt out of marketing communications at any time.</li>
+        <li><strong>Right to Data Portability:</strong> Request transfer of your data in a structured, commonly used format.</li>
+      </ul>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="1800">6. Data Retention</h2>
+      <p class="text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="1900">
+        We retain your personal data for as long as necessary to fulfill the purposes outlined in this Privacy Policy, comply with our legal obligations, resolve disputes, and enforce our agreements. Once your data is no longer needed, it is securely deleted or anonymized.
+      </p>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="2000">7. International Data Transfers</h2>
+      <p class="text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="2100">
+        If you are located outside India or Europe, your data may be transferred to and stored in these regions. We comply with applicable data protection regulations (e.g., GDPR, CCPA) when processing international data transfers.
+      </p>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="2200">8. Changes to This Privacy Policy</h2>
+      <p class="text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="2300">
+        We may update this Privacy Policy periodically to reflect changes in our practices or for legal, regulatory, or operational reasons. We will notify you of any significant changes by updating the Effective Date and posting the updated policy on our website.
+      </p>
+      
+      <h2 class="text-2xl font-bold text-gray-800 mt-10 mb-4" data-aos="fade-up" data-aos-delay="2400">9. Contact Us</h2>
+      <p class="text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="2500">
+        If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:
+      </p>
+      <ul class="list-disc list-inside text-gray-700 text-lg mb-6" data-aos="fade-up" data-aos-delay="2600">
+        <li><strong>Email:</strong> <a href="mailto:privacy@denvik.in" class="text-blue-600 hover:underline">privacy@denvik.in</a></li>
+        <li><strong>Phone:</strong> +91 44 43835320</li>
+        <li><strong>Address:</strong> #45, Raju Nagar 2nd Street, Mettukuppam, Okkiyam Thoraipakkam, Chennai - 600097, India</li>
+      </ul>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-200 py-8">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between">
+      <div>
+        <p>&copy; 2025 Denvik. All Rights Reserved.</p>
+        <p>Email: <a href="mailto:sales@denvik.in" class="hover:text-white">sales@denvik.in</a></p>
+        <p>Phone: +91 44 43835320</p>
+      </div>
+      <div class="flex space-x-4">
+        <a href="https://www.linkedin.com" target="_blank" class="hover:text-white">LinkedIn</a>
+        <a href="https://www.youtube.com" target="_blank" class="hover:text-white">YouTube</a>
+      </div>
+    </div>
+    <div class="mt-4 text-center">
+      <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+      <span class="mx-2">|</span>
+      <a href="terms.html" class="hover:underline">Terms of Service</a>
+      <span class="mx-2">|</span>
+      <a href="cookie.html" class="hover:underline">Cookie Policy</a>
+      <span class="mx-2">|</span>
+      <a href="sitemap.html" class="hover:underline">Sitemap</a>
+    </div>
+  </footer>
+  
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    
+    // Back to top button behavior
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    
+    // Mobile resources dropdown toggle
+    const resourcesDropdownBtn = document.getElementById('resources-dropdown-btn');
+    const resourcesDropdown = document.getElementById('resources-dropdown');
+    if (resourcesDropdownBtn) {
+      resourcesDropdownBtn.addEventListener('click', () => resourcesDropdown.classList.toggle('hidden'));
+    }
+    
+    // Initialize AOS
+    AOS.init();
+  </script>
+</body>
+</html>

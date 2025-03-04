@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denvik IoT & Industrial Automation Solutions</title>
+    <meta name="description" content="Explore Denvik's cutting-edge automation and IoT solutions for equipment automation, design & engineering, sensor solutions, smart farming, and more.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Using modern font combination -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            50: '#FEF5EB',
+                            100: '#FDEAD7',
+                            200: '#FBD5AF',
+                            300: '#F9C088',
+                            400: '#F7AB60',
+                            500: '#E47B10',
+                            600: '#C6690E',
+                            700: '#A7580C',
+                            800: '#89460A',
+                            900: '#6A3608'
+                        },
+                        green: {
+                            50: '#F4F9ED',
+                            100: '#E9F3DB',
+                            200: '#D3E7B7',
+                            300: '#BEDB94',
+                            400: '#A9CF70',
+                            500: '#85C324',
+                            600: '#72A51F',
+                            700: '#5F881A',
+                            800: '#4D6B15',
+                            900: '#3A4E10'
+                        },
+                        blue: {
+                            50: '#E3F0F9',
+                            100: '#C7E1F3',
+                            200: '#8FC3E7',
+                            300: '#57A5DB',
+                            400: '#1F87CF',
+                            500: '#0668A5',
+                            600: '#05598D',
+                            700: '#044A75',
+                            800: '#033B5D',
+                            900: '#022C46'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                        serif: ['Roboto Slab', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            color: #000000;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .title-serif {
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        .btn-primary {
+            @apply bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
+        }
+        
+        .btn-secondary {
+            @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
+        }
+        
+        .btn-outline {
+            @apply border-2 border-blue-500 text-blue-500 bg-transparent hover:bg-blue-50 font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105;
+        }
+        
+        .section-heading {
+            @apply text-3xl md:text-4xl font-bold mb-6 text-gray-800 relative;
+        }
+        
+        .section-heading::after {
+            content: '';
+            @apply absolute bottom-0 left-0 h-1 w-20 bg-orange-500 rounded-full;
+            transform: translateY(8px);
+        }
+        
+        .card {
+            @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, #0668A5, #044A75);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Animated underline for nav links */
+        .nav-link {
+            position: relative;
+            @apply font-medium;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 2px;
+            right: 0;
+            background: #0668A5;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+            left: 0;
+        }
+        
+        .active-nav {
+            @apply text-blue-500;
+        }
+        
+        .active-nav:after {
+            width: 100%;
+            left: 0;
+        }
+        
+        /* Solution cards hover effect */
+        .solution-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Process step cards */
+        .process-step {
+            @apply relative py-4 pl-8 border-l-2 border-blue-400;
+        }
+        
+        .process-step::before {
+            content: '';
+            @apply absolute w-4 h-4 rounded-full bg-blue-500 -left-2 top-6;
+        }
+        
+        .process-step:last-child {
+            @apply border-transparent;
+        }
+        
+        /* FAQ styles */
+        .faq-item {
+            @apply border-b border-gray-200 py-5;
+        }
+        
+        .faq-question {
+            @apply flex justify-between items-center w-full text-left font-medium text-lg text-gray-800 focus:outline-none;
+        }
+        
+        .faq-answer {
+            @apply mt-3 text-gray-600 hidden;
+        }
+        
+        .faq-answer.active {
+            @apply block;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #0668A5;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #044A75;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu-enter {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        
+        .mobile-menu-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms, transform 300ms;
+        }
+        
+        .mobile-menu-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mobile-menu-exit-active {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 300ms, transform 300ms;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            @apply fixed bottom-6 right-6 bg-orange-500 text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 transform scale-0 opacity-0;
+        }
+        
+        .back-to-top.visible {
+            @apply transform scale-100 opacity-100;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+                <!-- Logo -->
+                <div class="flex justify-start lg:w-0 lg:flex-1 z-10">
+                    <a href="index.html" class="flex items-center group">
+                        <span class="text-blue-500 font-bold text-2xl group-hover:text-blue-600 transition duration-300">Denvik</span>
+                        <div class="ml-2 flex flex-col items-start">
+                            <span class="text-sm text-orange-500 font-semibold">IoT Solutions</span>
+                            <span class="text-xs text-gray-500">18 Years of Excellence</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="-mr-2 -my-2 md:hidden">
+                    <button id="mobile-menu-button" type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition duration-300">
+                        <span class="sr-only">Open menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop nav links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-500">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-500">About Us</a>
+                    <a href="solutions.html" class="nav-link active-nav">Solutions</a>
+                    <a href="case-studies.html" class="nav-link text-gray-700 hover:text-blue-500">Case Studies</a>
+                    <div class="relative group">
+                        <a href="resources.html" class="nav-link text-gray-700 hover:text-blue-500 inline-flex items-center">
+                            Resources
+                            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100">
+                            <div class="py-1">
+                                <a href="blogs.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">Blogs</a>
+                                <a href="news.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">News</a>
+                                <a href="whitepapers.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">Whitepapers</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="career.html" class="nav-link text-gray-700 hover:text-blue-500">Career</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-500">Contact</a>
+                </nav>
+                
+                <!-- Desktop CTA -->
+                <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                    <a href="middle-east-india.html" class="nav-link text-sm text-gray-700 hover:text-blue-500 mr-6">Middle East & India</a>
+                    <a href="contact.html" class="btn-primary text-sm inline-flex items-center shadow-sm">
+                        <span>Request a Demo</span>
+                        <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu, show/hide based on mobile menu state -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-xl z-50 transform transition-all duration-300">
+            <div class="pt-2 pb-4 px-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">About Us</a>
+                <a href="solutions.html" class="block px-3 py-2 rounded-lg text-base font-medium text-blue-500 bg-blue-50">Solutions</a>
+                <a href="case-studies.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Case Studies</a>
+                
+                <div class="relative">
+                    <button id="resources-dropdown-btn" class="flex justify-between items-center w-full px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">
+                        Resources
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="resources-dropdown" class="hidden mt-1 ml-3 space-y-1">
+                        <a href="blogs.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Blogs</a>
+                        <a href="news.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">News</a>
+                        <a href="whitepapers.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Whitepapers</a>
+                    </div>
+                </div>
+                
+                <a href="career.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Career</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Contact</a>
+                <a href="middle-east-india.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Middle East & India</a>
+                
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <a href="contact.html" class="block w-full px-3 py-3 text-center rounded-lg text-base font-medium text-white bg-orange-500 hover:bg-orange-600">
+                        Request a Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative py-20 md:py-28 bg-gradient-to-r from-blue-50 via-white to-blue-50 overflow-hidden">
+            <!-- Decorative elements -->
+            <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <defs>
+                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M 10 0 L 0 0 L 0 10" fill="none" stroke="#0668A5" stroke-width="0.5"></path>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)"></rect>
+                </svg>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-3" data-aos="fade-up">Denvik IoT & Industrial Automation Solutions</h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">Transforming Industries with Smart, Scalable, and Future-Ready Technology.</p>
+                    <p class="text-lg text-gray-600 mb-10" data-aos="fade-up" data-aos-delay="200">
+                        Leveraging over 15 years of expertise and trusted globally across 35+ countries, Denvik delivers cutting-edge automation and IoT solutions to help businesses streamline operations, increase efficiency, and reduce costs.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="300">
+                        <a href="contact.html" class="btn-primary">
+                            Request a Consultation
+                        </a>
+                        <a href="contact.html#quote" class="btn-outline">
+                            Get a Custom Quote
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Decorative illustration -->
+                <div class="mt-6 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://i.pinimg.com/736x/a9/60/79/a960796e19bf7024d1a1f93f05c2f010.jpg" alt="IoT Solutions" class="w-full h-auto rounded-xl shadow-xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions Overview Section -->
+        <section class="py-16 md:py-24 bg-white" id="solutions-overview">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-3">OUR SOLUTIONS</span>
+                    <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">Comprehensive IoT & Automation Solutions</h2>
+                    <p class="text-lg text-gray-600 mt-6">
+                        Our diverse range of solutions are designed to meet the unique needs of various industries, driving digital transformation and operational excellence.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                    <!-- Equipment Automation -->
+                    <div class="solution-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                        <img src="https://i.pinimg.com/736x/d2/0c/7f/d20c7f6a55c234d5dfd16b209decc830.jpg" alt="Equipment Automation" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Equipment Automation</h3>
+                            <p class="text-gray-600 mb-6">
+                                Enhancing industrial efficiency with smart automation. Our solutions modernize operations through smart controls, real-time data analytics, and advanced monitoring systems to optimize performance, reduce energy consumption, and extend machinery lifespan.
+                            </p>
+                            <a href="#equipment-automation" class="inline-flex items-center text-blue-500 font-medium hover:text-blue-700">
+                                Learn More
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Design & Engineering Services -->
+                    <div class="solution-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://i.pinimg.com/736x/42/3f/ba/423fba557438587bf43ee85c973e0739.jpg" alt="Design & Engineering" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Design & Engineering Services</h3>
+                            <p class="text-gray-600 mb-6">
+                                Tailor-made IoT solutions built to your specifications. We provide end-to-end design and engineering services covering IoT, hardware, software, PLC programming, and panel building, designing cost-effective, purpose-oriented edge devices that integrate with existing systems.
+                            </p>
+                            <a href="#design-engineering" class="inline-flex items-center text-blue-500 font-medium hover:text-blue-700">
+                                Learn More
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Sensor Solutions & Connectivity -->
+                    <div class="solution-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                        <img src="https://i.pinimg.com/736x/9c/ec/0f/9cec0fd47ca37616889858eaab0e196d.jpg" alt="Sensor Solutions" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Sensor Solutions & Connectivity</h3>
+                            <p class="text-gray-600 mb-6">
+                                IoT-enabled monitoring for seamless connectivity. Our sensor solutions enable real-time data acquisition and secure cloud connectivity, supporting various communication protocols (such as LoRa, NB-IoT, Wi-Fi) to ensure robust monitoring across industrial and commercial settings.
+                            </p>
+                            <a href="#sensor-solutions" class="inline-flex items-center text-blue-500 font-medium hover:text-blue-700">
+                                Learn More
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Smart Farming Solutions -->
+                    <div class="solution-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                        <img src="https://i.pinimg.com/736x/ed/59/30/ed593053e382aaff2e22b5e9e6059838.jpg" alt="Smart Farming" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Smart Farming Solutions</h3>
+                            <p class="text-gray-600 mb-6">
+                                Denvik's farmsensAI optimizes farm operations for better productivity. Leveraging AI and IoT, we transform traditional farming into a smart, data-driven process with solutions for aquafarming, greenhouse management, poultry farming, hydroponics, and aquaponics.
+                            </p>
+                            <a href="#smart-farming" class="inline-flex items-center text-blue-500 font-medium hover:text-blue-700">
+                                Learn More
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Coffee Machine -->
+                    <div class="solution-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                        <img src="https://i.pinimg.com/736x/1f/12/da/1f12da869876212e9b00df5cbaa9fc9a.jpg" alt="Coffee Machine" class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Coffee Machine</h3>
+                            <p class="text-gray-600 mb-6">
+                                Transforming living and workspaces with IoT. Our smart coffee machine is engineered for precision brewing with cloud-based monitoring, AI-driven dispensing, and an enhanced user interface for improved coffee quality, operational efficiency, and market differentiation.
+                            </p>
+                            <a href="#coffee-machine" class="inline-flex items-center text-blue-500 font-medium hover:text-blue-700">
+                                Learn More
+                                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- CTA Card -->
+                    <!-- CTA Card -->
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl overflow-hidden shadow-lg flex items-center" data-aos="fade-up" data-aos-delay="600">
+                      <div class="p-6 text-white">
+                          <h3 class="text-2xl font-bold mb-3">Custom Solutions</h3>
+                          <p class="mb-6">
+                              Need a specialized IoT solution for your unique business requirements? Our team of experts can design and develop tailored solutions for your specific needs.
+                          </p>
+                          <a href="contact.html" class="inline-flex items-center bg-white text-blue-600 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 transition duration-300">
+                              Contact Us
+                              <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                              </svg>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Detailed Solutions Sections -->
+      <!-- Equipment Automation Section -->
+      <section class="py-16 md:py-24 bg-gray-50" id="equipment-automation">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="md:flex md:items-center md:gap-12">
+                  <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                      <span class="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-3">EQUIPMENT AUTOMATION</span>
+                      <h2 class="section-heading">Modernizing Industrial Operations</h2>
+                      <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                          Denvik modernizes industrial operations by integrating smart controls, advanced analytics, and monitoring systems, revolutionizing the way businesses manage their equipment.
+                      </p>
+                      
+                      <h3 class="text-xl font-bold text-gray-800 mb-3">Key Systems</h3>
+                      <ul class="space-y-4 mb-8">
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-blue-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">Air Compressor Controller System</h4>
+                                  <p class="text-gray-600">Optimizes compressed air management for improved efficiency and reduced energy consumption.</p>
+                              </div>
+                          </li>
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-blue-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">Bag House Automation System</h4>
+                                  <p class="text-gray-600">Enhances air filtration and ensures compliance with environmental regulations.</p>
+                              </div>
+                          </li>
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-blue-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">Analog Input Module</h4>
+                                  <p class="text-gray-600">Enables precise sensor data acquisition for accurate monitoring and control.</p>
+                              </div>
+                          </li>
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-blue-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">Drive Test Kit</h4>
+                                  <p class="text-gray-600">Facilitates testing and troubleshooting of VFD systems for optimal performance.</p>
+                              </div>
+                          </li>
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-blue-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">Timer Controller</h4>
+                                  <p class="text-gray-600">Automates scheduled operations for consistent and reliable process management.</p>
+                              </div>
+                          </li>
+                      </ul>
+                      
+                      <h3 class="text-xl font-bold text-gray-800 mb-3">Benefits</h3>
+                      <p class="text-gray-600 mb-6">
+                          Our equipment automation solutions deliver improved efficiency, reduced downtime, significant energy savings, and extended equipment lifespan, providing a substantial return on investment.
+                      </p>
+                      <a href="contact.html" class="btn-primary">
+                          Request a Consultation
+                      </a>
+                  </div>
+                  <div class="md:w-1/2 relative" data-aos="fade-left">
+                      <div class="relative">
+                          <!-- Decorative elements -->
+                          <div class="absolute -top-6 -left-6 w-32 h-32 border-4 border-blue-200 rounded-xl opacity-70 z-0"></div>
+                          <img src="https://i.pinimg.com/736x/d2/0c/7f/d20c7f6a55c234d5dfd16b209decc830.jpg" alt="Equipment Automation" class="relative z-10 rounded-xl shadow-xl w-full">
+                          <div class="mt-8">
+                              <img src="https://i.pinimg.com/736x/a3/56/40/a356402a6042ae8941e9bf7f9a0a934c.jpg" alt="Equipment Automation Detail" class="rounded-xl shadow-md w-full">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Design & Engineering Services Section -->
+      <section class="py-16 md:py-24 bg-white" id="design-engineering">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="md:flex md:items-center md:gap-12">
+                  <div class="md:w-1/2 mb-10 md:mb-0 order-2 md:order-1" data-aos="fade-right">
+                      <div class="relative">
+                          <img src="https://i.pinimg.com/736x/42/3f/ba/423fba557438587bf43ee85c973e0739.jpg" alt="Design & Engineering" class="rounded-xl shadow-xl w-full">
+                          <div class="mt-8 grid grid-cols-2 gap-4">
+                              <img src="https://i.pinimg.com/736x/7b/94/8d/7b948d86a96aef9d0a50ac83b85b801b.jpg" alt="Hardware Design" class="rounded-xl shadow-md">
+                              <img src="https://i.pinimg.com/736x/54/60/71/5460718577e51bb4f6e9427bd108233a.jpg" alt="Software Development" class="rounded-xl shadow-md">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="md:w-1/2 order-1 md:order-2" data-aos="fade-left">
+                      <span class="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full mb-3">DESIGN & ENGINEERING</span>
+                      <h2 class="section-heading">End-to-End Design & Engineering Services</h2>
+                      <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                          Denvik provides comprehensive design and engineering services in industrial automation, creating customized solutions that address your specific operational challenges.
+                      </p>
+                      
+                      <h3 class="text-xl font-bold text-gray-800 mb-3">Core Areas</h3>
+                      <ul class="space-y-4 mb-8">
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">IoT Integration</h4>
+                                  <p class="text-gray-600">Connecting legacy systems and purpose-built edge devices to create a unified, intelligent ecosystem.</p>
+                              </div>
+                          </li>
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">Hardware</h4>
+                                  <p class="text-gray-600">Custom controllers, edge devices, and advanced display options (AMOLED, LCD, OLED) with support for various wired/wireless protocols.</p>
+                              </div>
+                          </li>
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">Software</h4>
+                                  <p class="text-gray-600">Robust, scalable applications for embedded systems and cloud platforms using modern frameworks and programming languages.</p>
+                              </div>
+                          </li>
+                          <li class="flex items-start">
+                              <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                  <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                              </div>
+                              <div class="ml-3">
+                                  <h4 class="font-semibold text-gray-800">PLC & Panel Building</h4>
+                                  <p class="text-gray-600">Customized control systems ensuring precise and reliable operations in industrial environments.</p>
+                              </div>
+                          </li>
+                      </ul>
+                      
+                      <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                          Our value proposition lies in providing end-to-end solutions tailored to meet industry-specific needs, from initial concept to final implementation and ongoing support.
+                      </p>
+                      <a href="contact.html" class="btn-primary bg-green-500 hover:bg-green-600">
+                          Discuss Your Requirements
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Sensor Solutions & Connectivity Section -->
+      <section class="py-16 md:py-24 bg-gray-50" id="sensor-solutions">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="md:flex md:items-center md:gap-12">
+                  <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                      <span class="inline-block px-3 py-1 text-xs font-semibold text-orange-700 bg-orange-100 rounded-full mb-3">SENSOR SOLUTIONS</span>
+                      <h2 class="section-heading">Real-Time Data Monitoring & Secure Connectivity</h2>
+                      <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                          Denvik provides advanced sensor integration and connectivity solutions that enable real-time data acquisition and secure cloud connectivity, empowering businesses with actionable insights.
+                      </p>
+                      
+                      <div class="bg-white rounded-xl p-6 shadow-md mb-6">
+                          <h3 class="text-xl font-bold text-gray-800 mb-4">Key Features</h3>
+                          <ul class="space-y-4">
+                              <li class="flex items-start">
+                                  <div class="flex-shrink-0 h-6 w-6 mt-1 bg-orange-100 rounded-full flex items-center justify-center">
+                                      <svg class="h-4 w-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                      </svg>
+                                  </div>
+                                  <div class="ml-3">
+                                      <h4 class="font-semibold text-gray-800">Advanced Sensor Integration</h4>
+                                      <p class="text-gray-600">Integration with a wide range of industrial sensors for comprehensive data collection.</p>
+                                  </div>
+                              </li>
+                              <li class="flex items-start">
+                                  <div class="flex-shrink-0 h-6 w-6 mt-1 bg-orange-100 rounded-full flex items-center justify-center">
+                                      <svg class="h-4 w-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                      </svg>
+                                  </div>
+                                  <div class="ml-3">
+                                      <h4 class="font-semibold text-gray-800">Multiple Communication Protocols</h4>
+                                      <p class="text-gray-600">Support for LoRa, NB-IoT, Wi-Fi, Bluetooth, and other protocols to ensure connectivity in any environment.</p>
+                                  </div>
+                              </li>
+                              <li class="flex items-start">
+                                  <div class="flex-shrink-0 h-6 w-6 mt-1 bg-orange-100 rounded-full flex items-center justify-center">
+                                      <svg class="h-4 w-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                      </svg>
+                                  </div>
+                                  <div class="ml-3">
+                                      <h4 class="font-semibold text-gray-800">Secure Data Transmission</h4>
+                                      <p class="text-gray-600">End-to-end encryption and secure protocols for protecting sensitive operational data.</p>
+                                  </div>
+                              </li>
+                              <li class="flex items-start">
+                                  <div class="flex-shrink-0 h-6 w-6 mt-1 bg-orange-100 rounded-full flex items-center justify-center">
+                                      <svg class="h-4 w-4 text-orange-500" fill="currentColor" viewBox="0 0 20 20">
+                                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                      </svg>
+                                  </div>
+                                  <div class="ml-3">
+                                      <h4 class="font-semibold text-gray-800">Cloud Platform Integration</h4>
+                                      <p class="text-gray-600">Seamless integration with major cloud platforms for data storage, analysis, and visualization.</p>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                      
+                      <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                          Our sensor solutions enhance operational control and decision-making through timely data insights, allowing businesses to proactively address issues, optimize processes, and drive continuous improvement.
+                      </p>
+                      <a href="contact.html" class="btn-primary bg-orange-500 hover:bg-orange-600">
+                          Explore Sensor Solutions
+                      </a>
+                  </div>
+                  <div class="md:w-1/2 relative" data-aos="fade-left">
+                      <div class="relative">
+                          <img src="https://i.pinimg.com/736x/9c/ec/0f/9cec0fd47ca37616889858eaab0e196d.jpg" alt="Sensor Solutions" class="rounded-xl shadow-xl w-full">
+                          <div class="mt-8">
+                              <div class="bg-white p-6 rounded-xl shadow-md">
+                                  <h4 class="text-lg font-bold text-gray-800 mb-4">Supported Communication Protocols</h4>
+                                  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                      <div class="bg-orange-50 p-3 rounded-lg text-center">
+                                          <span class="font-medium text-orange-700">LoRa</span>
+                                      </div>
+                                      <div class="bg-orange-50 p-3 rounded-lg text-center">
+                                          <span class="font-medium text-orange-700">NB-IoT</span>
+                                      </div>
+                                      <div class="bg-orange-50 p-3 rounded-lg text-center">
+                                          <span class="font-medium text-orange-700">Wi-Fi</span>
+                                      </div>
+                                      <div class="bg-orange-50 p-3 rounded-lg text-center">
+                                          <span class="font-medium text-orange-700">Bluetooth</span>
+                                      </div>
+                                      <div class="bg-orange-50 p-3 rounded-lg text-center">
+                                          <span class="font-medium text-orange-700">Zigbee</span>
+                                      </div>
+                                      <div class="bg-orange-50 p-3 rounded-lg text-center">
+                                          <span class="font-medium text-orange-700">Modbus</span>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Smart Farming Solutions Section -->
+      <section class="py-16 md:py-24 bg-white" id="smart-farming">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                  <span class="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full mb-3">SMART FARMING</span>
+                  <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">Transforming Agriculture with farmsensAI</h2>
+                  <p class="text-lg text-gray-600 mt-6">
+                      Denvik's farmsensAI transforms traditional farming into a smart, data-driven process using IoT and AI technologies to enhance productivity, efficiency, and sustainability.
+                  </p>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  <!-- Smart Aquafarm -->
+                  <div class="bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                      <div class="h-48 overflow-hidden">
+                          <img src="https://i.pinimg.com/736x/64/c2/e9/64c2e97b19f01471b9b85ad9d03613bb.jpg" alt="Smart Aquafarm" class="w-full h-full object-cover">
+                      </div>
+                      <div class="p-6">
+                          <h3 class="text-xl font-bold text-gray-800 mb-3">Smart Aquafarm</h3>
+                          <p class="text-gray-600 mb-6">
+                              Automates feeding, water quality, and oxygen monitoring for aquaculture, optimizing fish health and growth while reducing labor costs and resource usage.
+                          </p>
+                          <ul class="mb-6 space-y-2">
+                              <li class="flex items-center text-sm text-gray-600">
+                                  <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                                  Automated feeding systems
+                              </li>
+                              <li class="flex items-center text-sm text-gray-600">
+                                  <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                                  Water quality monitoring
+                              </li>
+                              <li class="flex items-center text-sm text-gray-600">
+                                  <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                  </svg>
+                                  Oxygen level control
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+                  
+                  <!-- Smart Greenhouse -->
+                  <div class="bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                      <div class="h-48 overflow-hidden">
+                          <img src="https://i.pinimg.com/736x/d9/15/e2/d915e20ae44df0b1b878b832ca3f95d3.jpg" alt="Smart Greenhouse" class="w-full h-full object-cover">
+                      </div>
+                      <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Smart Greenhouse</h3>
+                        <p class="text-gray-600 mb-6">
+                            Automates climate control (temperature, humidity, light) to optimize plant growth, creating an ideal environment regardless of external conditions for year-round production.
+                        </p>
+                        <ul class="mb-6 space-y-2">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Temperature & humidity control
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Automated irrigation
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Light optimization
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Smart Poultry Farm -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/a4/6c/ca/a46cca59b8af6a9c9c1d111d7fc23ce9.jpg" alt="Smart Poultry Farm" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Smart Poultry Farm</h3>
+                        <p class="text-gray-600 mb-6">
+                            Provides real-time control over environmental conditions to reduce mortality and boost productivity, ensuring optimal climate for poultry health and growth.
+                        </p>
+                        <ul class="mb-6 space-y-2">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Climate control systems
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Feed management
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Health monitoring
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Smart Hydroponics -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/3b/ef/8b/3bef8b11fa6caaaa8104ec39f5b7cc7b.jpg" alt="Smart Hydroponics" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Smart Hydroponics</h3>
+                        <p class="text-gray-600 mb-6">
+                            Automates nutrient delivery and water circulation for soil-less farming, maximizing yield while minimizing water usage and space requirements.
+                        </p>
+                        <ul class="mb-6 space-y-2">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Nutrient monitoring
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                pH level control
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Water flow management
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Smart Aquaponics -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://i.pinimg.com/736x/dc/41/01/dc4101a7cfbbe68e89afa2edb3d24901.jpg" alt="Smart Aquaponics" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Smart Aquaponics</h3>
+                        <p class="text-gray-600 mb-6">
+                            Integrates aquaculture and hydroponics to create a balanced ecosystem, where fish waste provides nutrients for plants, which in turn purify the water.
+                        </p>
+                        <ul class="mb-6 space-y-2">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Ecosystem balance monitoring
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Automated water cycling
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <svg class="h-4 w-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Integrated environment control
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Benefits Card -->
+                <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-xl overflow-hidden shadow-lg text-white" data-aos="fade-up" data-aos-delay="600">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4">Smart Farming Benefits</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Enhanced productivity and yield optimization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Resource efficiency and sustainability</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Remote monitoring and management capabilities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Data-driven decision making</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="h-5 w-5 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <span>Reduced labor costs and operational expenses</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="inline-flex items-center bg-white text-green-600 font-medium py-2 px-4 rounded-lg hover:bg-green-50 transition duration-300">
+                            Contact Us
+                            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coffee Machine Section -->
+    <section class="py-16 md:py-24 bg-gray-50" id="coffee-machine">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:gap-12">
+                <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold text-purple-700 bg-purple-100 rounded-full mb-3">COFFEE MACHINE</span>
+                    <h2 class="section-heading">Next-Generation Smart Coffee Machine</h2>
+                    <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                        Denvik's smart coffee machine is engineered for precision brewing, combining IoT connectivity with AI-driven dispensing to deliver a superior coffee experience while providing valuable operational insights.
+                    </p>
+                    
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Key Features</h3>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 bg-purple-100 rounded-full flex items-center justify-center">
+                                <svg class="h-4 w-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">Cloud-Based Monitoring System</h4>
+                                <p class="text-gray-600">Enables remote tracking of machine performance, usage patterns, and maintenance needs.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 bg-purple-100 rounded-full flex items-center justify-center">
+                                <svg class="h-4 w-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">AI-Driven Dispensing</h4>
+                                <p class="text-gray-600">Ensures consistent and high-quality brewing through precise control of temperature, pressure, and timing.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 bg-purple-100 rounded-full flex items-center justify-center">
+                                <svg class="h-4 w-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="font-semibold text-gray-800">Enhanced User Interface</h4>
+                                <p class="text-gray-600">Offers an intuitive and interactive user experience with personalization options and smart recommendations.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Benefits</h3>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 bg-purple-100 rounded-full flex items-center justify-center">
+                                <svg class="h-4 w-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Superior coffee quality and consistency</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 bg-purple-100 rounded-full flex items-center justify-center">
+                                <svg class="h-4 w-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Increased operational efficiency via remote monitoring</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 bg-purple-100 rounded-full flex items-center justify-center">
+                                <svg class="h-4 w-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Reduced downtime through predictive maintenance</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 mt-1 bg-purple-100 rounded-full flex items-center justify-center">
+                                <svg class="h-4 w-4 text-purple-500" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <div class="ml-3">
+                                <p class="text-gray-600">Market differentiation for manufacturers</p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <a href="contact.html" class="btn-primary bg-purple-600 hover:bg-purple-700">
+                        Learn About Smart Coffee Machines
+                    </a>
+                </div>
+                <div class="md:w-1/2 relative" data-aos="fade-left">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/736x/1f/12/da/1f12da869876212e9b00df5cbaa9fc9a.jpg" alt="Smart Coffee Machine" class="rounded-xl shadow-xl w-full">
+                        <div class="mt-8 bg-white rounded-xl p-6 shadow-md">
+                            <h4 class="text-lg font-bold text-gray-800 mb-4">Usage Analytics Dashboard</h4>
+                            <img src="https://i.pinimg.com/736x/8a/e9/bd/8ae9bd6b7bcf9ac621acda3867a6b64b.jpg" alt="Coffee Machine Analytics" class="rounded-lg shadow-sm w-full">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How Our Solutions Work Section -->
+    <section class="py-16 md:py-24 bg-white" id="how-it-works">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <span class="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-3">PROCESS</span>
+                <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">How Our Solutions Work</h2>
+                <p class="text-lg text-gray-600 mt-6">
+                    Our IoT and automation solutions follow a streamlined process to transform raw data into actionable insights and automated operations.
+                </p>
+            </div>
+            
+            <div class="relative max-w-4xl mx-auto" data-aos="fade-up">
+                <!-- Process steps -->
+                <div class="ml-8">
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Data Collection</h3>
+                        <p class="text-gray-600 mb-4">IoT sensors capture real-time data from industrial processes, equipment, and environmental conditions, creating a continuous stream of operational information.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-blue-700 text-sm">Sensors monitor temperature, pressure, vibration, energy usage, and other critical parameters 24/7.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Data Processing</h3>
+                        <p class="text-gray-600 mb-4">AI-powered analytics interpret the data to identify trends, anomalies, and optimization opportunities, turning raw information into actionable insights.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-blue-700 text-sm">Advanced algorithms process millions of data points to detect patterns and predict potential issues before they occur.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Automation & Control</h3>
+                        <p class="text-gray-600 mb-4">Smart systems trigger automated actions to maintain optimal operations, adjusting parameters and processes based on real-time data and analytics.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <p class="text-blue-700 text-sm">Automated controls make immediate adjustments to maintain ideal conditions, eliminating the need for manual intervention.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Monitoring & Insights</h3>
+                        <p class="text-gray-600 mb-4">Custom dashboards deliver live insights and performance metrics, enabling proactive management and data-driven decision making.</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                          <p class="text-blue-700 text-sm">Custom dashboards provide real-time visibility into operations, enabling managers to make informed decisions quickly and effectively.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+          <!-- Process Flow Diagram -->
+          <div class="mt-16 max-w-4xl mx-auto" data-aos="fade-up" data-aos-delay="500">
+              <img src="https://i.pinimg.com/736x/95/80/e7/9580e7bccd018bd3e95c92c4358b3b7c.jpg" alt="IoT Process Flow" class="w-full h-auto rounded-xl shadow-lg">
+          </div>
+      </div>
+  </section>
+
+  
+
+<!-- Industries We Serve Section -->
+<section class="py-16 md:py-24 bg-gray-50" id="industries">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-3 py-1 text-xs font-semibold text-orange-700 bg-orange-100 rounded-full mb-3">INDUSTRIES</span>
+        <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">Industries We Serve</h2>
+        <p class="text-lg text-gray-600 mt-6">
+            Our IoT and automation solutions have been tailored and deployed across a diverse range of industries, delivering measurable results and driving digital transformation.
+        </p>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        <!-- Manufacturing -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="h-48 overflow-hidden">
+                <img src="https://i.pinimg.com/736x/8d/c4/cd/8dc4cd27cec0a8f0798fcc8d55b56b67.jpg" alt="Manufacturing & Industrial" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Manufacturing & Industrial Automation</h3>
+                <p class="text-gray-600">
+                    Optimizing production processes, reducing downtime, and enhancing quality control through smart monitoring and automation solutions.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Agriculture -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="200">
+            <div class="h-48 overflow-hidden">
+                <img src="https://i.pinimg.com/736x/ed/59/30/ed593053e382aaff2e22b5e9e6059838.jpg" alt="Agriculture & Farming" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Agriculture & Poultry Farming</h3>
+                <p class="text-gray-600">
+                    Transforming traditional farming with IoT and AI technologies for improved productivity, resource efficiency, and sustainable practices.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Smart Cities -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="300">
+            <div class="h-48 overflow-hidden">
+                <img src="https://i.pinimg.com/736x/a2/75/53/a27553c00225cf76d9e03af00fef2e34.jpg" alt="Smart Cities" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Smart Cities & Infrastructure</h3>
+                <p class="text-gray-600">
+                    Enhancing urban living with connected infrastructure, efficient resource management, and data-driven city planning and services.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Energy -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="400">
+            <div class="h-48 overflow-hidden">
+                <img src="https://i.pinimg.com/736x/4d/29/83/4d2983e8c1c27694dbc16ad7c04c5b42.jpg" alt="Energy & Utilities" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Energy & Utilities</h3>
+                <p class="text-gray-600">
+                    Improving efficiency, reducing waste, and enabling predictive maintenance in power generation, distribution, and utility management.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Commercial Buildings -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden group transition-all duration-300 hover:shadow-xl" data-aos="fade-up" data-aos-delay="500">
+            <div class="h-48 overflow-hidden">
+                <img src="https://i.pinimg.com/736x/75/9a/b9/759ab9d80db03c6a1cdf9688ea5eda41.jpg" alt="Commercial Buildings" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-3">Corporate & Commercial Buildings</h3>
+                <p class="text-gray-600">
+                    Creating intelligent buildings with automated climate control, energy management, security systems, and enhanced user experiences.
+                </p>
+            </div>
+        </div>
+        
+        <!-- CTA Card -->
+        <div class="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-md overflow-hidden text-white" data-aos="fade-up" data-aos-delay="600">
+            <div class="p-6 flex flex-col justify-center h-full">
+                <h3 class="text-xl font-bold mb-4">Need a Solution for Your Industry?</h3>
+                <p class="mb-6">
+                    Our team of experts can develop customized IoT and automation solutions for your specific industry needs.
+                </p>
+                <a href="contact.html" class="inline-flex items-center bg-white text-blue-600 font-medium py-2 px-4 rounded-lg hover:bg-blue-50 transition duration-300 mt-auto">
+                    Contact Our Team
+                    <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Success Stories Section -->
+<section class="py-16 md:py-24 bg-white" id="success-stories">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full mb-3">SUCCESS STORIES</span>
+        <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">Denvik Success Stories</h2>
+        <p class="text-lg text-gray-600 mt-6">
+            Discover how our IoT and automation solutions have delivered measurable results and transformed operations for businesses across various industries.
+        </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <!-- Success Story 1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+            <div class="h-48 bg-blue-500 flex items-center justify-center">
+                <div class="text-center px-6">
+                    <span class="text-white text-5xl font-bold">32%</span>
+                    <p class="text-white text-lg mt-2">Efficiency Increase</p>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 mb-6">
+                    A leading manufacturing company implemented our equipment automation solutions, resulting in a 32% increase in operational efficiency and a 28% reduction in energy consumption.
+                </p>
+                <div class="flex items-center">
+                    <img src="https://i.pinimg.com/736x/78/10/7a/78107a60b38c7fbf6aee32d4fa753fb0.jpg" alt="Manufacturing Client" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-4">
+                        <p class="text-gray-800 font-semibold">Industrial Manufacturing</p>
+                        <p class="text-gray-500 text-sm">Europe</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Success Story 2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+            <div class="h-48 bg-green-500 flex items-center justify-center">
+                <div class="text-center px-6">
+                    <span class="text-white text-5xl font-bold">45%</span>
+                    <p class="text-white text-lg mt-2">Water Usage Reduction</p>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 mb-6">
+                    A commercial greenhouse adopted our smart farming solutions, achieving a 45% reduction in water usage while increasing crop yield by 18% through precise environmental control.
+                </p>
+                <div class="flex items-center">
+                    <img src="https://i.pinimg.com/736x/b8/d7/55/b8d755a890990a8a86c64d6f7546a538.jpg" alt="Agriculture Client" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-4">
+                        <p class="text-gray-800 font-semibold">Agricultural Business</p>
+                        <p class="text-gray-500 text-sm">Middle East</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Success Story 3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100" data-aos="fade-up" data-aos-delay="300">
+            <div class="h-48 bg-orange-500 flex items-center justify-center">
+                <div class="text-center px-6">
+                    <span class="text-white text-5xl font-bold">60%</span>
+                    <p class="text-white text-lg mt-2">Downtime Reduction</p>
+                </div>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 mb-6">
+                    An energy company implemented our sensor solutions for predictive maintenance, resulting in a 60% reduction in equipment downtime and saving over €2 million in operational costs.
+                </p>
+                <div class="flex items-center">
+                    <img src="https://i.pinimg.com/736x/05/d7/b5/05d7b5bd4b2b9eb10ec70b8df5b96d53.jpg" alt="Energy Client" class="w-12 h-12 rounded-full object-cover">
+                    <div class="ml-4">
+                        <p class="text-gray-800 font-semibold">Energy Provider</p>
+                        <p class="text-gray-500 text-sm">Scandinavia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-16" data-aos="fade-up">
+        <a href="case-studies.html" class="btn-primary">
+            Read More Case Studies
+        </a>
+    </div>
+</div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-16 md:py-24 bg-gray-50" id="faq">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+        <span class="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-3">FAQs</span>
+        <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">Frequently Asked Questions</h2>
+        <p class="text-lg text-gray-600 mt-6">
+            Find answers to common questions about our IoT and automation solutions, implementation process, and technology integrations.
+        </p>
+    </div>
+    
+    <div class="max-w-3xl mx-auto mt-12">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <button class="faq-question">
+                <span>How can your solutions be customized for our specific business needs?</span>
+                <svg class="w-6 h-6 text-blue-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <p class="text-gray-600">
+                    Our solutions are designed with flexibility and scalability in mind. We begin with a comprehensive assessment of your current operations, challenges, and goals. Based on this understanding, our team of experts develops tailored solutions that address your specific requirements, whether it's equipment automation, sensor integration, or a complete IoT ecosystem. We work closely with your team throughout the design and implementation process to ensure the solution aligns perfectly with your business needs.
+                </p>
+            </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <button class="faq-question">
+                <span>Can your solutions integrate with our existing systems and equipment?</span>
+                <svg class="w-6 h-6 text-blue-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <p class="text-gray-600">
+                    Yes, our solutions are designed to integrate seamlessly with your existing infrastructure. We have extensive experience working with legacy systems and equipment across various industries. Our team will conduct a thorough assessment of your current setup and develop integration strategies that minimize disruption to your operations. We support various communication protocols and can develop custom interfaces where needed to ensure smooth data flow between your existing systems and our IoT solutions.
+                </p>
+            </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <button class="faq-question">
+                <span>How do you ensure data security in your IoT solutions?</span>
+                <svg class="w-6 h-6 text-blue-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <p class="text-gray-600">
+                    Security is a paramount concern in all our solutions. We implement multiple layers of protection, including end-to-end encryption for data transmission, secure authentication mechanisms, and regular security audits. Our systems comply with industry standards and regulations for data protection. We also employ secure software development practices and keep all components updated with the latest security patches. Additionally, we provide comprehensive documentation and training on security best practices for your team to ensure ongoing protection.
+                </p>
+            </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+            <button class="faq-question">
+                <span>What is the typical implementation timeline for your solutions?</span>
+                <svg class="w-6 h-6 text-blue-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <p class="text-gray-600">
+                    Implementation timelines vary depending on the scope and complexity of the solution, but typically range from 4-12 weeks for standard deployments. The process begins with requirements gathering and system design (1-2 weeks), followed by development and configuration (2-4 weeks), installation and integration (1-2 weeks), and finally testing and validation (1-2 weeks). For more complex enterprise-level solutions, implementation may take 3-6 months. We work with you to develop a detailed project plan with clear milestones to ensure transparent and efficient deployment.
+                </p>
+            </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+            <button class="faq-question">
+                <span>What kind of support and maintenance do you provide after implementation?</span>
+                <svg class="w-6 h-6 text-blue-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
+            <div class="faq-answer">
+                <p class="text-gray-600">
+                    We offer comprehensive support and maintenance packages tailored to your needs. Our standard support includes 24/7 monitoring of system performance, regular software updates, security patches, and technical assistance through our dedicated support team. We also provide preventive maintenance services, system health checks, and performance optimization. For enterprise clients, we offer premium support with dedicated account managers, faster response times, and regular on-site visits. All clients receive access to our knowledge base, training resources, and regular system reports.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-16" data-aos="fade-up">
+        <p class="text-lg text-gray-600 mb-6">
+            Still have questions? Our team is here to help you find the right solutions for your business.
+        </p>
+        <a href="contact.html" class="btn-primary">
+            Contact Us
+        </a>
+    </div>
+</div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="py-16 md:py-24 bg-gradient-to-br from-blue-600 to-blue-800 relative overflow-hidden">
+<!-- Decorative circles -->
+<div class="absolute top-10 left-10 w-64 h-64 bg-white rounded-full mix-blend-overlay opacity-10"></div>
+<div class="absolute bottom-10 right-10 w-64 h-64 bg-white rounded-full mix-blend-overlay opacity-10"></div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="md:flex md:items-center md:justify-between">
+        <div class="md:w-2/3" data-aos="fade-right">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Transform Your Business with IoT?</h2>
+            <p class="text-xl text-blue-100 mb-8">Schedule a consultation with our experts and discover how our IoT solutions can drive efficiency, innovation, and growth for your organization.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="contact.html" class="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                    Contact Us Today
+                    <svg class="ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="case-studies.html" class="inline-flex items-center justify-center border-2 border-white text-white font-medium py-3 px-8 rounded-lg hover:bg-white hover:bg-opacity-10 transition duration-300">
+                    View Success Stories
+                </a>
+            </div>
+        </div>
+        <div class="mt-10 md:mt-0 md:w-1/3" data-aos="fade-left">
+            <div class="relative">
+                <div class="absolute inset-0 bg-white transform -rotate-6 rounded-2xl opacity-20"></div>
+                <img src="https://i.pinimg.com/736x/f4/c4/63/f4c463e42a1b2b0a216cdaee7b4a825c.jpg" alt="IoT Solutions" class="relative rounded-2xl shadow-2xl">
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white">
+<div class="relative overflow-hidden">
+<!-- Wave separator -->
+<div class="absolute top-0 left-0 w-full transform rotate-180 z-10">
+    <svg class="w-full h-auto" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#f9fafb" d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,42.7C1120,32,1280,32,1360,32L1440,32L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"></path>
+    </svg>
+</div>
+
+<!-- Footer content -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 relative z-20">
+    <!-- Footer top section with newsletter -->
+    <div class="md:flex md:justify-between md:items-center mb-16 pb-8 border-b border-gray-800">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+            <h3 class="text-2xl font-bold text-white mb-3">Stay Connected</h3>
+            <p class="text-gray-400 mb-6 md:max-w-md">Subscribe to our newsletter to get the latest updates on IoT innovations and Denvik solutions.</p>
+            <form class="flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Your email address" class="bg-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 flex-grow" required>
+                <button type="submit" class="bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-6 rounded-lg transition duration-300 whitespace-nowrap">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+        <div class="md:w-1/3">
+            <div class="flex items-center mb-4">
+                <span class="text-orange-400 font-bold text-3xl">Denvik</span>
+                <div class="ml-2 flex flex-col items-start">
+                    <span class="text-xs text-blue-300 font-semibold">IoT Solutions</span>
+                    <span class="text-xs text-gray-500">EST. 2007</span>
+                </div>
+            </div>
+            <p class="text-gray-400 mb-6">18 Years of Industrial Automation Excellence – Now in Europe</p>
+            <div class="flex space-x-4">
+                <a href="#" class="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full p-3 text-gray-300 hover:text-white">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+                <a href="#" class="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full p-3 text-gray-300 hover:text-white">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                </a>
+                <a href="#" class="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full p-3 text-gray-300 hover:text-white">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                    </svg>
+                </a>
+                <a href="#" class="bg-gray-800 hover:bg-gray-700 transition-colors duration-300 rounded-full p-3 text-gray-300 hover:text-white">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main footer section -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
+        <!-- Contact Information -->
+        <div>
+            <h3 class="text-lg font-bold mb-5 text-white relative">
+                <span class="relative inline-block">
+                    Contact Us
+                    <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-orange-500"></span>
+                </span>
+            </h3>
+            <div class="space-y-4">
+                <div class="flex items-start">
+                    <svg class="h-5 w-5 mt-1 mr-3 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <p class="text-gray-300">#45, Raju Nagar 2nd Street, Mettukuppam, Okkiyam Thoraipakkam, Chennai - 600097.</p>
+                </div>
+                <div class="flex items-start">
+                    <svg class="h-5 w-5 mt-1 mr-3 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <p class="text-gray-300">sales@denvik.in</p>
+                </div>
+                <div class="flex items-start">
+                    <svg class="h-5 w-5 mt-1 mr-3 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <p class="text-gray-300">+91 44 43835320</p>
+                </div>
+                <div class="flex items-start">
+                    <svg class="h-5 w-5 mt-1 mr-3 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <p class="text-gray-300">Mon-Fri: 9:00 AM - 5:00 PM IST</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Links -->
+        <div>
+            <h3 class="text-lg font-bold mb-5 text-white relative">
+                <span class="relative inline-block">
+                    Quick Links
+                    <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-green-500"></span>
+                </span>
+            </h3>
+            <ul class="space-y-3">
+                <li>
+                    <a href="about.html" class="text-gray-300 hover:text-green-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a href="solutions.html" class="text-gray-300 hover:text-green-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Our Solutions
+                    </a>
+                </li>
+                <li>
+                    <a href="case-studies.html" class="text-gray-300 hover:text-green-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Case Studies
+                    </a>
+                </li>
+                <li>
+                    <a href="blogs.html" class="text-gray-300 hover:text-green-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Blogs
+                    </a>
+                </li>
+                <li>
+                    <a href="career.html" class="text-gray-300 hover:text-green-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Career
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html" class="text-gray-300 hover:text-green-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Solutions -->
+        <div>
+            <h3 class="text-lg font-bold mb-5 text-white relative">
+                <span class="relative inline-block">
+                    Our Solutions
+                    <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-blue-500"></span>
+                </span>
+            </h3>
+            <ul class="space-y-3">
+                <li>
+                    <a href="#equipment-automation" class="text-gray-300 hover:text-blue-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Equipment Automation
+                    </a>
+                </li>
+                <li>
+                    <a href="#design-engineering" class="text-gray-300 hover:text-blue-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Design & Engineering
+                    </a>
+                </li>
+                <li>
+                    <a href="#sensor-solutions" class="text-gray-300 hover:text-blue-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Sensor Solutions
+                    </a>
+                </li>
+                <li>
+                    <a href="#smart-farming" class="text-gray-300 hover:text-blue-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Smart Farming
+                    </a>
+                </li>
+                <li>
+                    <a href="#coffee-machine" class="text-gray-300 hover:text-blue-400 transition duration-300 flex items-center">
+                        <svg class="h-3 w-3 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        Coffee Machine IoT
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Location Map -->
+        <div>
+            <h3 class="text-lg font-bold mb-5 text-white relative">
+                <span class="relative inline-block">
+                    Find Us
+                    <span class="absolute bottom-0 left-0 w-1/2 h-0.5 bg-orange-500"></span>
+                </span>
+            </h3>
+            <div class="rounded-lg overflow-hidden h-40 relative">
+                <img src="/api/placeholder/400/200" alt="Office Location Map" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-blue-900 bg-opacity-30 flex items-center justify-center">
+                    <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="bg-white text-blue-600 font-medium py-2 px-4 rounded-lg hover:bg-gray-100 transition duration-300 transform hover:scale-105 shadow-lg text-sm">
+                        Open in Google Maps
+                    </a>
+                </div>
+            </div>
+            <p class="mt-3 text-sm text-gray-400">Our European headquarters is located in the heart of Copenhagen's tech district.</p>
+        </div>
+    </div>
+    
+    <!-- Footer bottom -->
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-400 text-sm">© 2025 Denvik. All Rights Reserved.</p>
+        <div class="mt-4 md:mt-0 flex flex-wrap gap-4">
+            <a href="privacy-policy.html" class="text-sm text-gray-400 hover:text-orange-400 transition duration-300">Privacy Policy</a>
+            <a href="terms-of-service.html" class="text-sm text-gray-400 hover:text-orange-400 transition duration-300">Terms of Service</a>
+            <a href="cookie-policy.html" class="text-sm text-gray-400 hover:text-orange-400 transition duration-300">Cookie Policy</a>
+            <a href="sitemap.html" class="text-sm text-gray-400 hover:text-orange-400 transition duration-300">Sitemap</a>
+        </div>
+    </div>
+</div>
+</div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+// Initialize AOS animation library
+AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true,
+    mirror: false
+});
+
+// Mobile menu functionality
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('mobile-menu-enter');
+            setTimeout(() => {
+                mobileMenu.classList.add('mobile-menu-enter-active');
+            }, 10);
+            setTimeout(() => {
+                mobileMenu.classList.remove('mobile-menu-enter', 'mobile-menu-enter-active');
+            }, 300);
+        } else {
+            mobileMenu.classList.add('mobile-menu-exit');
+            setTimeout(() => {
+                mobileMenu.classList.add('mobile-menu-exit-active');
+            }, 10);
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('mobile-menu-exit', 'mobile-menu-exit-active');
+            }, 300);
+        }
+    });
+}
+
+// Mobile resources dropdown
+const resourcesDropdownBtn = document.getElementById('resources-dropdown-btn');
+const resourcesDropdown = document.getElementById('resources-dropdown');
+
+if (resourcesDropdownBtn && resourcesDropdown) {
+    resourcesDropdownBtn.addEventListener('click', () => {
+        resourcesDropdown.classList.toggle('hidden');
+    });
+}
+
+// Back to top button
+const backToTopButton = document.getElementById('backToTop');
+
+if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+        
+        window.scrollTo({
+            top: targetElement.offsetTop - 100,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// FAQ accordion functionality
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+faqQuestions.forEach(question => {
+    question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector('svg');
+        
+        // Toggle the answer visibility
+        answer.classList.toggle('active');
+        
+        // Rotate the icon
+        if (answer.classList.contains('active')) {
+            icon.style.transform = 'rotate(180deg)';
+        } else {
+            icon.style.transform = 'rotate(0)';
+        }
+    });
+});
+
+// Solution cards hover effect
+const solutionCards = document.querySelectorAll('.solution-card');
+solutionCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
+        const image = card.querySelector('img');
+        if (image) {
+            image.style.transform = 'scale(1.1)';
+        }
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+        const image = card.querySelector('img');
+        if (image) {
+            image.style.transform = 'scale(1)';
+        }
+    });
+});
+});
+</script>
+</body>
+</html>     

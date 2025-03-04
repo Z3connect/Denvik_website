@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Denvik – Industrial Automation Excellence in Europe</title>
+    <meta name="description" content="Learn about Denvik's 18 years of excellence in industrial automation and IoT solutions deployed across 50+ countries worldwide.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts - Using modern font combination -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        orange: {
+                            50: '#FEF5EB',
+                            100: '#FDEAD7',
+                            200: '#FBD5AF',
+                            300: '#F9C088',
+                            400: '#F7AB60',
+                            500: '#E47B10',
+                            600: '#C6690E',
+                            700: '#A7580C',
+                            800: '#89460A',
+                            900: '#6A3608'
+                        },
+                        green: {
+                            50: '#F4F9ED',
+                            100: '#E9F3DB',
+                            200: '#D3E7B7',
+                            300: '#BEDB94',
+                            400: '#A9CF70',
+                            500: '#85C324',
+                            600: '#72A51F',
+                            700: '#5F881A',
+                            800: '#4D6B15',
+                            900: '#3A4E10'
+                        },
+                        blue: {
+                            50: '#E3F0F9',
+                            100: '#C7E1F3',
+                            200: '#8FC3E7',
+                            300: '#57A5DB',
+                            400: '#1F87CF',
+                            500: '#0668A5',
+                            600: '#05598D',
+                            700: '#044A75',
+                            800: '#033B5D',
+                            900: '#022C46'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                        serif: ['Roboto Slab', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            color: #000000;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .title-serif {
+            font-family: 'Roboto Slab', serif;
+        }
+        
+        .btn-primary {
+            @apply bg-orange-500 hover:bg-orange-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
+        }
+        
+        .btn-secondary {
+            @apply bg-blue-500 hover:bg-blue-600 text-white font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-md hover:shadow-lg;
+        }
+        
+        .btn-outline {
+            @apply border-2 border-blue-500 text-blue-500 bg-transparent hover:bg-blue-50 font-medium py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105;
+        }
+        
+        .section-heading {
+            @apply text-3xl md:text-4xl font-bold mb-6 text-gray-800 relative;
+        }
+        
+        .section-heading::after {
+            content: '';
+            @apply absolute bottom-0 left-0 h-1 w-20 bg-orange-500 rounded-full;
+            transform: translateY(8px);
+        }
+        
+        .card {
+            @apply bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl;
+        }
+        
+        .text-gradient {
+            background: linear-gradient(90deg, #0668A5, #044A75);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Animated underline for nav links */
+        .nav-link {
+            position: relative;
+            @apply font-medium;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 2px;
+            right: 0;
+            background: #0668A5;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+            left: 0;
+        }
+        
+        .active-nav {
+            @apply text-blue-500;
+        }
+        
+        .active-nav:after {
+            width: 100%;
+            left: 0;
+        }
+        
+        /* Timeline styles */
+        .timeline-container {
+            @apply relative border-l-4 border-blue-500 ml-6 pb-10 space-y-10;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            @apply absolute w-4 h-4 rounded-full bg-blue-500 -left-2 top-0;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            @apply relative pl-8 pb-10;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            @apply absolute w-4 h-4 rounded-full bg-blue-500 -left-2;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item:last-child {
+            @apply pb-0;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #0668A5;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #044A75;
+        }
+        
+        /* Mobile menu */
+        .mobile-menu-enter {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        
+        .mobile-menu-enter-active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 300ms, transform 300ms;
+        }
+        
+        .mobile-menu-exit {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .mobile-menu-exit-active {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 300ms, transform 300ms;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            @apply fixed bottom-6 right-6 bg-orange-500 text-white p-3 rounded-full shadow-lg z-50 transition-all duration-300 transform scale-0 opacity-0;
+        }
+        
+        .back-to-top.visible {
+            @apply transform scale-100 opacity-100;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Back to top button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
+        </svg>
+    </button>
+
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
+                <!-- Logo -->
+                <div class="flex justify-start lg:w-0 lg:flex-1 z-10">
+                    <a href="index.html" class="flex items-center group">
+                        <span class="text-blue-500 font-bold text-2xl group-hover:text-blue-600 transition duration-300">Denvik</span>
+                        <div class="ml-2 flex flex-col items-start">
+                            <span class="text-sm text-orange-500 font-semibold">IoT Solutions</span>
+                            <span class="text-xs text-gray-500">18 Years of Excellence</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="-mr-2 -my-2 md:hidden">
+                    <button id="mobile-menu-button" type="button" class="rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition duration-300">
+                        <span class="sr-only">Open menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Desktop nav links -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-500">Home</a>
+                    <a href="about.html" class="nav-link active-nav">About Us</a>
+                    <a href="solutions.html" class="nav-link text-gray-700 hover:text-blue-500">Solutions</a>
+                    <a href="case-studies.html" class="nav-link text-gray-700 hover:text-blue-500">Case Studies</a>
+                    <div class="relative group">
+                        <a href="resources.html" class="nav-link text-gray-700 hover:text-blue-500 inline-flex items-center">
+                            Resources
+                            <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform origin-top scale-95 group-hover:scale-100">
+                            <div class="py-1">
+                                <a href="blogs.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">Blogs</a>
+                                <a href="news.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">News</a>
+                                <a href="whitepapers.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-500">Whitepapers</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="career.html" class="nav-link text-gray-700 hover:text-blue-500">Career</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-500">Contact</a>
+                </nav>
+                
+                <!-- Desktop CTA -->
+                <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                    <a href="middle-east-india.html" class="nav-link text-sm text-gray-700 hover:text-blue-500 mr-6">Middle East & India</a>
+                    <a href="contact.html" class="btn-primary text-sm inline-flex items-center shadow-sm">
+                        <span>Request a Demo</span>
+                        <svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu, show/hide based on mobile menu state -->
+        <div id="mobile-menu" class="hidden md:hidden absolute w-full bg-white shadow-xl z-50 transform transition-all duration-300">
+            <div class="pt-2 pb-4 px-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Home</a>
+                <a href="about.html" class="block px-3 py-2 rounded-lg text-base font-medium text-blue-500 bg-blue-50">About Us</a>
+                <a href="solutions.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Solutions</a>
+                <a href="case-studies.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Case Studies</a>
+                
+                <div class="relative">
+                    <button id="resources-dropdown-btn" class="flex justify-between items-center w-full px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">
+                        Resources
+                        <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div id="resources-dropdown" class="hidden mt-1 ml-3 space-y-1">
+                        <a href="blogs.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Blogs</a>
+                        <a href="news.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">News</a>
+                        <a href="whitepapers.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Whitepapers</a>
+                    </div>
+                </div>
+                
+                <a href="career.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Career</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Contact</a>
+                <a href="middle-east-india.html" class="block px-3 py-2 rounded-lg text-base font-medium text-gray-700 hover:text-blue-500 hover:bg-blue-50">Middle East & India</a>
+                
+                <div class="mt-4 pt-4 border-t border-gray-200">
+                    <a href="contact.html" class="block w-full px-3 py-3 text-center rounded-lg text-base font-medium text-white bg-orange-500 hover:bg-orange-600">
+                        Request a Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative py-20 md:py-28 bg-gradient-to-r from-blue-50 via-white to-blue-50 overflow-hidden">
+            <!-- Decorative elements -->
+            <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <defs>
+                        <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M 10 0 L 0 0 L 0 10" fill="none" stroke="#0668A5" stroke-width="0.5"></path>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid)"></rect>
+                </svg>
+            </div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-3 title-serif" data-aos="fade-up">About Denvik</h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8" data-aos="fade-up" data-aos-delay="100">18 Years of Industrial Automation Excellence – Driving Innovation Worldwide</p>
+                    <div class="w-20 h-1 bg-orange-500 mx-auto rounded-full mb-8"></div>
+                    <div class="mt-10" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://i.pinimg.com/736x/56/30/c2/5630c2b7d18ecaf9c7a35ec0e88b0755.jpg" alt="Denvik Team" class="rounded-2xl shadow-xl w-full h-auto">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who We Are Section -->
+        <section class="py-16 md:py-24 bg-white" id="who-we-are">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:gap-12">
+                    <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-3">WHO WE ARE</span>
+                        <h2 class="section-heading">A Global Leader in Industrial Automation</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            Denvik is a global leader in industrial automation and IoT solutions, with over 18 years of expertise in the industry and deployments in more than 50 countries worldwide.
+                        </p>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            We empower both startups and large enterprises by designing, developing, and deploying reliable automation systems that transform operations and drive efficiency.
+                        </p>
+                        <p class="text-lg text-gray-600 leading-relaxed">
+                            Our innovative approach has allowed us to stay ahead of the curve in a competitive global market, constantly pushing the boundaries of what's possible in industrial automation and IoT.
+                        </p>
+                    </div>
+                    <div class="md:w-1/2 relative" data-aos="fade-left">
+                        <!-- Decorative elements -->
+                        <div class="absolute -top-6 -left-6 w-32 h-32 bg-blue-100 rounded-xl opacity-70 z-0"></div>
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-orange-100 rounded-xl opacity-70 z-0"></div>
+                        
+                        <img src="https://i.pinimg.com/736x/d3/f3/bb/d3f3bb8a19c19c1eefca8f0909c9996a.jpg" alt="Industrial Automation" class="relative z-10 rounded-xl shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Mission Section -->
+        <section class="py-16 md:py-24 bg-gray-50" id="our-mission">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold text-orange-700 bg-orange-100 rounded-full mb-3">OUR MISSION</span>
+                    <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">Building Advanced IoT Solutions</h2>
+                    <p class="text-lg text-gray-600 mt-6">
+                        Our mission is to build advanced, robust, and easy-to-use IoT solutions that help businesses automate and optimize their operations.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                    <!-- Mission Item 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Innovation</h3>
+                        </div>
+                        <p class="text-gray-600">Pioneering new-age automation technologies that transform how businesses operate in the digital age.</p>
+                    </div>
+                    
+                    <!-- Mission Item 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Reliability</h3>
+                        </div>
+                        <p class="text-gray-600">Delivering robust and scalable IoT solutions that businesses can depend on for mission-critical operations.</p>
+                    </div>
+                    
+                    <!-- Mission Item 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-orange-100 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h.5A2.5 2.5 0 0020 5.5v-1.565M6 12.5a4.5 4.5 0 00-4.5 4.5V18a3 3 0 003 3h15a3 3 0 003-3v-1a4.5 4.5 0 00-4.5-4.5H6z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Sustainability</h3>
+                        </div>
+                        <p class="text-gray-600">Developing smart solutions focused on energy efficiency and reducing environmental impact for a better future.</p>
+                    </div>
+                    
+                    <!-- Mission Item 4 -->
+                    <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800">Customer-Centric</h3>
+                        </div>
+                        <p class="text-gray-600">Tailoring products to meet the specific needs of each industry and ensuring user-friendly interfaces for seamless adoption.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Vision Section -->
+        <section class="py-16 md:py-24 bg-blue-50" id="our-vision">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:gap-12">
+                    <div class="md:w-1/2 mb-10 md:mb-0 order-2 md:order-1" data-aos="fade-right">
+                        <div class="relative">
+                            <!-- Decorative elements -->
+                            <div class="absolute -top-6 -left-6 w-32 h-32 border-4 border-blue-200 rounded-xl opacity-70 z-0"></div>
+                            <img src="https://i.pinimg.com/736x/20/a7/d3/20a7d3d7c0d58313f7e732cfe17ffc57.jpg" alt="Digital Transformation" class="relative z-10 rounded-xl shadow-lg w-full">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2" data-aos="fade-left">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold text-blue-700 bg-blue-100 rounded-full mb-3">OUR VISION</span>
+                        <h2 class="section-heading">Leading the Future of Industrial Automation</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            To be the world's most trusted industrial automation and IoT solutions provider, helping businesses achieve seamless digital transformation and operational efficiency.
+                        </p>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                            We envision a future where businesses across all sectors leverage the power of IoT to achieve unprecedented levels of efficiency, sustainability, and innovation.
+                        </p>
+                        <a href="solutions.html" class="btn-primary inline-flex items-center">
+                            Explore Our Solutions
+                            <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Journey - Timeline Section -->
+        <section class="py-16 md:py-24 bg-white" id="our-journey">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full mb-3">OUR JOURNEY</span>
+                    <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">Milestones That Define Us</h2>
+                    <p class="text-lg text-gray-600 mt-6">
+                        From our humble beginnings to becoming a global leader in industrial automation, our journey has been defined by innovation, perseverance, and a commitment to excellence.
+                    </p>
+                </div>
+                
+                <div class="relative mt-16">
+                    <div class="timeline-container">
+                        <!-- 2007 -->
+                        <div class="timeline-item" data-aos="fade-up">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <h3 class="text-2xl font-bold text-blue-600">2007</h3>
+                                    <p class="text-lg font-medium text-gray-700">The Beginning</p>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-600">Denvik is founded with the vision to revolutionize industrial automation through innovative IoT technologies.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2009 -->
+                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <h3 class="text-2xl font-bold text-blue-600">2009</h3>
+                                    <p class="text-lg font-medium text-gray-700">Initiation of Manufacturing</p>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-600">The company starts manufacturing its first units, setting the foundation for a suite of industrial automation products.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2012 -->
+                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <h3 class="text-2xl font-bold text-blue-600">2012</h3>
+                                    <p class="text-lg font-medium text-gray-700">Scaling Up</p>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-600">Expanded engineering and R&D teams; venturing into international markets with deployments in over 15 countries.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2015 -->
+                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <h3 class="text-2xl font-bold text-blue-600">2015</h3>
+                                    <p class="text-lg font-medium text-gray-700">Sustainability Vertical</p>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-600">Spun off a new vertical focused on sustainability, developing IoT solutions for energy efficiency and environmental monitoring.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2018 -->
+                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <h3 class="text-2xl font-bold text-blue-600">2018</h3>
+                                    <p class="text-lg font-medium text-gray-700">100,000+ Products Shipped</p>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-600">A major milestone showcasing the vast number of automation products delivered worldwide, establishing our global footprint.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2021 -->
+                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="500">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <h3 class="text-2xl font-bold text-blue-600">2021</h3>
+                                    <p class="text-lg font-medium text-gray-700">Smart Farming</p>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-600">Launched a new vertical focused on smart farming solutions, bringing IoT innovation to agricultural efficiency and sustainability.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2024 -->
+                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <h3 class="text-2xl font-bold text-blue-600">2024</h3>
+                                    <p class="text-lg font-medium text-gray-700">Expansion in the GCC</p>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-600">Broadened operations in the Gulf Cooperation Council, establishing a strong presence in the Middle East market.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 2025 -->
+                        <div class="timeline-item" data-aos="fade-up" data-aos-delay="700">
+                            <div class="flex flex-col md:flex-row">
+                                <div class="md:w-1/4 mb-4 md:mb-0">
+                                    <h3 class="text-2xl font-bold text-blue-600">2025</h3>
+                                    <p class="text-lg font-medium text-gray-700">European Expansion</p>
+                                </div>
+                                <div class="md:w-3/4">
+                                    <p class="text-gray-600">Established regional offices in the GCC and Europe, marking a strategic expansion for the future and bringing our industrial automation expertise to new markets.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Our Leadership Section -->
+        <section class="py-16 md:py-24 bg-gray-50" id="leadership">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <span class="inline-block px-3 py-1 text-xs font-semibold text-purple-700 bg-purple-100 rounded-full mb-3">OUR LEADERSHIP</span>
+                    <h2 class="section-heading mx-auto after:left-1/2 after:-translate-x-1/2">Meet Our Leadership</h2>
+                    <p class="text-lg text-gray-600 mt-6">
+                        Our leadership team brings decades of combined experience in IoT, industrial automation, and digital transformation.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+                    <!-- Director 1 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                        <div class="sm:flex">
+                            <div class="sm:w-2/5">
+                                <img src="https://i.pinimg.com/736x/90/fa/c0/90fac0d5a877d12dd52e7bf2d3907d20.jpg" alt="Director" class="h-full w-full object-cover">
+                            </div>
+                            <div class="p-8 sm:w-3/5">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">David Anderson</h3>
+                                <p class="text-orange-500 font-medium mb-4">Founder & CEO</p>
+                                <p class="text-gray-600 mb-6">
+                                    A visionary entrepreneur with extensive experience in IoT, AI, and automation, leading continuous growth and innovation at Denvik.
+                                </p>
+                                <a href="https://linkedin.com" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.5 18h3V6.9h-3V18zM4 2c-1 0-1.8.8-1.8 1.8S3 5.6 4 5.6s1.8-.8 1.8-1.8S5 2 4 2zm6.6 6.6V6.9h-3V18h3v-5.7c0-3.2 4.1-3.4 4.1 0V18h3v-6.8c0-5.4-5.7-5.2-7.1-2.6z"></path>
+                                    </svg>
+                                    LinkedIn Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Director 2 -->
+                    <div class="bg-white rounded-xl shadow-md overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                        <div class="sm:flex">
+                            <div class="sm:w-2/5">
+                                <img src="https://i.pinimg.com/736x/6a/34/27/6a3427dbcfb8c10a83e0b96a59ea98ac.jpg" alt="Director" class="h-full w-full object-cover">
+                            </div>
+                            <div class="p-8 sm:w-3/5">
+                                <h3 class="text-2xl font-bold text-gray-800 mb-2">Sarah Chen</h3>
+                                <p class="text-orange-500 font-medium mb-4">CTO & Research Director</p>
+                                <p class="text-gray-600 mb-6">
+                                    Responsible for research, development, and ensuring the company's solutions remain at the forefront of the industrial automation industry.
+                                </p>
+                                <a href="https://linkedin.com" target="_blank" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.5 18h3V6.9h-3V18zM4 2c-1 0-1.8.8-1.8 1.8S3 5.6 4 5.6s1.8-.8 1.8-1.8S5 2 4 2zm6.6 6.6V6.9h-3V18h3v-5.7c0-3.2 4.1-3.4 4.1 0V18h3v-6.8c0-5.4-5.7-5.2-7.1-2.6z"></path>
+                                    </svg>
+                                    LinkedIn Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Denvik Section -->
+        <section class="py-16 md:py-24 bg-white" id="why-choose">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:gap-12">
+                    <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold text-orange-700 bg-orange-100 rounded-full mb-3">WHY CHOOSE US</span>
+                        <h2 class="section-heading">Why Choose Denvik?</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                            Our proven track record, global expertise, and commitment to innovation make Denvik the partner of choice for businesses looking to embrace the future of industrial automation.
+                        </p>
+                        
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-lg font-semibold text-gray-800">Industry Expertise</h4>
+                                    <p class="text-gray-600">18+ years of experience in industrial automation and IoT solutions.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-lg font-semibold text-gray-800">Global Impact</h4>
+                                    <p class="text-gray-600">Trusted by businesses across more than 50 countries worldwide.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-lg font-semibold text-gray-800">End-to-End Solutions</h4>
+                                    <p class="text-gray-600">Offering fully customized automation from concept to deployment.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-lg font-semibold text-gray-800">Proven Results</h4>
+                                    <p class="text-gray-600">Over 150,000 products shipped, showcasing tangible improvements in efficiency.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <h4 class="text-lg font-semibold text-gray-800">Sustainability-Focused</h4>
+                                    <p class="text-gray-600">Initiatives that reduce energy consumption and operational waste.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 relative" data-aos="fade-left">
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://i.pinimg.com/736x/c7/e8/ea/c7e8ea850a7c0d5ec8adeb50f0689349.jpg" alt="IoT Solutions" class="rounded-xl shadow-md">
+                            <img src="https://i.pinimg.com/736x/9d/a0/38/9da0389db19e943c5aad74c53d2c0fa2.jpg" alt="Industrial Automation" class="rounded-xl shadow-md">
+                            <img src="https://i.pinimg.com/736x/ce/30/43/ce30435edfa35da32aa118628bf94b3c.jpg" alt="Smart Manufacturing" class="rounded-xl shadow-md">
+                            <img src="https://i.pinimg.com/736x/ee/2b/46/ee2b46e4503d1ddb3fa67cc4f9e4a2e8.jpg" alt="IoT Connectivity" class="rounded-xl shadow-md">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sustainability Section -->
+        <section class="py-16 md:py-24 bg-green-50" id="sustainability">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex md:items-center md:gap-12">
+                    <div class="md:w-1/2 mb-10 md:mb-0 order-2 md:order-1" data-aos="fade-right">
+                        <div class="relative">
+                            <!-- Decorative elements -->
+                            <div class="absolute -top-6 -left-6 w-32 h-32 border-4 border-green-200 rounded-xl opacity-70 z-0"></div>
+                            <img src="https://i.pinimg.com/736x/16/05/98/160598926bc6ee4e6023a7dadddf5341.jpg" alt="Sustainability" class="relative z-10 rounded-xl shadow-lg w-full">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 order-1 md:order-2" data-aos="fade-left">
+                        <span class="inline-block px-3 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full mb-3">SUSTAINABILITY</span>
+                        <h2 class="section-heading">Our Commitment to Sustainability</h2>
+                        <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                            At Denvik, we design our solutions for a better future, integrating sustainability into every aspect of our business and products.
+                        </p>
+                        
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-gray-600">Reducing energy consumption through smart monitoring and automation.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-gray-600">Minimizing operational waste by enhancing efficiency across industrial processes.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-gray-600">Supporting renewable energy adoption through IoT integration and smart grid technologies.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="flex-shrink-0 h-6 w-6 mt-1 bg-green-100 rounded-full flex items-center justify-center">
+                                    <svg class="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-gray-600">Optimizing resource utilization to reduce costs and environmental impact.</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <a href="solutions.html#sustainability" class="btn-primary inline-flex items-center bg-green-500 hover:bg-green-600">
+                            Explore Sustainable Solutions
+                            <svg class="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="py-16 md:py-24 bg-gradient-to-br from-blue-600 to-blue-800 relative overflow-hidden">
+            <!-- Decorative circles -->
+            <div class="absolute top-10 left-10 w-64 h-64 bg-white rounded-full mix-blend-overlay opacity-10"></div>
+            <div class="absolute bottom-10 right-10 w-64 h-64 bg-white rounded-full mix-blend-overlay opacity-10"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Join Our Journey</h2>
+                    <p class="text-xl text-blue-100 mb-8">
+                        Be part of Denvik's ongoing journey of innovation and excellence in industrial automation and IoT solutions.
+                    </p>
+                    <div class="bg-white bg-opacity-10 rounded-xl p-6 md:p-8 backdrop-filter backdrop-blur-sm mb-8">
+                        <p class="text-white text-lg mb-4">Contact us to learn more about our solutions or discuss your specific requirements.</p>
+                        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-6">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-orange-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                                <span class="text-white">+45 12 345 6789</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-orange-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                                <span class="text-white">sales@denvik.in</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="solutions.html" class="btn-primary bg-orange-500 hover:bg-orange-600">
+                            Explore Our Solutions
+                        </a>
+                        <a href="contact.html" class="btn-outline border-white text-white hover:bg-white hover:bg-opacity-10">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </main>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-400 text-sm">© 2025 Denvik. All Rights Reserved.</p>
+          <div class="mt-4 md:mt-0 flex flex-wrap gap-4">
+              <a href="privacy-policy.html" class="text-sm text-gray-400 hover:text-orange-400 transition duration-300">Privacy Policy</a>
+              <a href="terms-of-service.html" class="text-sm text-gray-400 hover:text-orange-400 transition duration-300">Terms of Service</a>
+              <a href="cookie-policy.html" class="text-sm text-gray-400 hover:text-orange-400 transition duration-300">Cookie Policy</a>
+              <a href="sitemap.html" class="text-sm text-gray-400 hover:text-orange-400 transition duration-300">Sitemap</a>
+          </div>
+      </div>
+  </div>
+</div>
+</footer>
+
+<!-- JavaScript -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize AOS animation library
+  AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+  });
+  
+  // Mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+          if (mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.remove('hidden');
+              mobileMenu.classList.add('mobile-menu-enter');
+              setTimeout(() => {
+                  mobileMenu.classList.add('mobile-menu-enter-active');
+              }, 10);
+              setTimeout(() => {
+                  mobileMenu.classList.remove('mobile-menu-enter', 'mobile-menu-enter-active');
+              }, 300);
+          } else {
+              mobileMenu.classList.add('mobile-menu-exit');
+              setTimeout(() => {
+                  mobileMenu.classList.add('mobile-menu-exit-active');
+              }, 10);
+              setTimeout(() => {
+                  mobileMenu.classList.add('hidden');
+                  mobileMenu.classList.remove('mobile-menu-exit', 'mobile-menu-exit-active');
+              }, 300);
+          }
+      });
+  }
+  
+  // Mobile resources dropdown
+  const resourcesDropdownBtn = document.getElementById('resources-dropdown-btn');
+  const resourcesDropdown = document.getElementById('resources-dropdown');
+  
+  if (resourcesDropdownBtn && resourcesDropdown) {
+      resourcesDropdownBtn.addEventListener('click', () => {
+          resourcesDropdown.classList.toggle('hidden');
+      });
+  }
+  
+  // Back to top button
+  const backToTopButton = document.getElementById('backToTop');
+  
+  if (backToTopButton) {
+      window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+              backToTopButton.classList.add('visible');
+          } else {
+              backToTopButton.classList.remove('visible');
+          }
+      });
+      
+      backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+          });
+      });
+  }
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (!targetElement) return;
+          
+          window.scrollTo({
+              top: targetElement.offsetTop - 100,
+              behavior: 'smooth'
+          });
+      });
+  });
+});
+</script>
+</body>
+</html>
